@@ -14,14 +14,16 @@ import './main.css';
 class App extends Component {
   render() {
     return (
-    <div className="pokedex container">
+    <div className="pokedex">
+        <div className="container">
         <header>
             <h1>POKEDEX V1.2</h1>
         </header>
-        <Navbar>
+        </div>
+        <Navbar className="container" >
             <Nav>
                 <NavItem eventKey={1} href="/">POKEDEX</NavItem>
-                <NavItem eventKey={2} href="/about">CAPTURAR</NavItem>
+                <NavItem eventKey={2} href="/capturar">CAPTURAR</NavItem>
             </Nav>
         </Navbar>
         {this.props.children}

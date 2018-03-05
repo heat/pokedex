@@ -6,18 +6,8 @@ import {
   Link
 } from 'react-router-dom';
 import MainLayout from './layout/main';
-
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
-
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-)
+import CapturarRoute from './layout/capturar';
+import Pokedex from './components/pokedex';
 
 const Topic = ({ match }) => (
   <div>
@@ -56,8 +46,8 @@ const Topics = ({ match }) => (
 const BasicExample = () => (
   <Router>
     <MainLayout>
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
+      <Route exact path="/" component={Pokedex}/>
+      <Route path="/capturar" component={CapturarRoute}/>
       <Route path="/topics" component={Topics}/>
     </MainLayout>
   </Router>
