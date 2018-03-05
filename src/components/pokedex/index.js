@@ -12,7 +12,7 @@ import {
     Panel,
 } from 'react-bootstrap';
 import CapturedPokemons from '../../containers/captured-pokemons';
-import PokemonPesquisa from '../pokemon-pesquisa';
+import PokemonDetalhe from '../pokemon-detalhe';
 
 class PokedexComponent extends Component {
     constructor() {
@@ -42,11 +42,7 @@ class PokedexComponent extends Component {
                         <CapturedPokemons aoSelecionarPokemon={this.detalhePokemon} />
                     </Col>
                     <Col xs={12} md={8}>
-                        {(this.state.pokemon)?<Panel >
-                            <Panel.Body>
-                            <PokemonPesquisa pokemon={this.state.pokemon} />
-                            </Panel.Body>
-                            </Panel>:null}
+                        {(this.state.pokemon)?<PokemonDetalhe pokemon={this.state.pokemon} />:null}
                     </Col>
                 </Row>
             </Grid>

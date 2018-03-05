@@ -7,6 +7,7 @@ import {
     Grid,
     Row,
     Col,
+    Label,
     ListGroup,
     ListGroupItem,
     Button,
@@ -18,11 +19,20 @@ const PokemonListItem = ({pokemon, aoLiberarPokemon, aoSelecionarPokemon }) => {
     const pokemonLink = `/pokedex/${pokemon.id}`;
     return (
         <ListGroupItem className="pokemon-item" >
+            <Row>
+                <Col xs={4}>
             <a href="#" onClick={() => aoSelecionarPokemon(pokemon)} >#{pokemon.id} {pokemon.name}</a>
+                </Col>
+                <Col xs={4}>
+                    {pokemon.types.map( t => <Label>{t.type.name}</Label>)}
+                </Col>
+                <Col xs={4}>
             <Button bsStyle="danger" className="pull-right" bsSize="small"
                 onClick={() => aoLiberarPokemon(pokemon) }  >
             <Glyphicon glyph="trash" />
             </Button>
+                </Col>
+            </Row>
         </ListGroupItem>
     );
 }
