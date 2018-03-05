@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import MainLayout from './layout/main';
 import CapturarRoute from './layout/capturar';
 import Pokedex from './components/pokedex';
@@ -43,13 +44,13 @@ const Topics = ({ match }) => (
   </div>
 )
 
-const BasicExample = () => (
+const PokedexApp = () => (
   <Router>
     <MainLayout>
-      <Route exact path="/" component={Pokedex}/>
+      <Route path="/pokedex" component={Pokedex}/>
       <Route path="/capturar" component={CapturarRoute}/>
       <Route path="/topics" component={Topics}/>
     </MainLayout>
   </Router>
 )
-export default BasicExample
+export default PokedexApp

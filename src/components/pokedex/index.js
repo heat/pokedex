@@ -10,8 +10,9 @@ import {
     ListGroup,
     ListGroupItem
 } from 'react-bootstrap';
+import CapturedPokemons from '../../containers/captured-pokemons';
 
-class componentName extends Component {
+class PokedexComponent extends Component {
     render() {
         return (
             <Grid>
@@ -22,25 +23,15 @@ class componentName extends Component {
                 </Row>
                 <Row>
                     <Col xs={12} md={4}>
-                        <ListGroup>
-                            <ListGroupItem>
-                                <Link  to="/pokedex/pokemon"> Bubassauro</Link>
-                            </ListGroupItem>
-                            <ListGroupItem>Item 2</ListGroupItem>
-                                <ListGroupItem>...</ListGroupItem>
-                        </ListGroup>
+                        <CapturedPokemons />
                     </Col>
-                        <Col xs={12} md={8}>
-                            <code>&lt;{'Col xs={6} md={4}'} /&gt;</code>
-                        </Col>
+                    <Col xs={12} md={8}>
+                        <code>&lt;{'Col xs={6} md={4}'} /&gt;</code>
+                    </Col>
                 </Row>
             </Grid>
-                );
-            }
-        }
-        
-componentName.propTypes = {
-
-                };
+        );
+    }
+}
                 
-export default componentName;
+export default PokedexComponent;

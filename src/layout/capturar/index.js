@@ -9,7 +9,7 @@ import {
     Button,
     Glyphicon
 } from 'react-bootstrap';
-import PokemonPesquisa from '../../components/pokemon-pesquisa';
+import PokemonPesquisa from '../../containers/searched-pokemon';
 import './capturar.css'
 
 class CapturarRoute extends Component {
@@ -94,7 +94,7 @@ class CapturarRoute extends Component {
                         </PokemonPesquisa>
                     </div>
                     </Col>
-                            <Button bsStyle="success" onClick={this.capturar} disabled={capturarDisabled} > CAPTURAR </Button>
+                            
                     <Col xs={12}>
                     </Col>
                 </Row>

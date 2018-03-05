@@ -9,8 +9,12 @@ import {
     Nav,
     NavItem
 } from 'react-bootstrap';
+import {
+    LinkContainer
+} from 'react-router-bootstrap';
 import logo from '../../logo.svg';
 import './main.css';
+
 class App extends Component {
   render() {
     return (
@@ -22,8 +26,12 @@ class App extends Component {
         </div>
         <Navbar className="container" >
             <Nav>
-                <NavItem eventKey={1} href="/">POKEDEX</NavItem>
-                <NavItem eventKey={2} href="/capturar">CAPTURAR</NavItem>
+            <LinkContainer to="/pokedex">
+                <NavItem>POKEDEX</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/capturar">
+                <NavItem>CAPTURAR</NavItem>
+            </LinkContainer>
             </Nav>
         </Navbar>
         {this.props.children}
