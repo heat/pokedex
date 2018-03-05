@@ -8,11 +8,27 @@ import {
     Row,
     Col,
     ListGroup,
-    ListGroupItem
+    ListGroupItem,
+    Panel,
 } from 'react-bootstrap';
 import CapturedPokemons from '../../containers/captured-pokemons';
+import PokemonPesquisa from '../pokemon-pesquisa';
 
 class PokedexComponent extends Component {
+    constructor() {
+        super(...arguments);
+
+        this.state = {
+            pokemon: null,
+        }
+    }
+
+    detalhePokemon = (pokemon) => {
+
+        this.setState({
+            pokemon,
+        });
+    }
     render() {
         return (
             <Grid>
@@ -23,10 +39,14 @@ class PokedexComponent extends Component {
                 </Row>
                 <Row>
                     <Col xs={12} md={4}>
-                        <CapturedPokemons />
+                        <CapturedPokemons aoSelecionarPokemon={this.detalhePokemon} />
                     </Col>
                     <Col xs={12} md={8}>
-                        <code>&lt;{'Col xs={6} md={4}'} /&gt;</code>
+                        {(this.state.pokemon)?<Panel >
+                            <Panel.Body>
+                            <PokemonPesquisa pokemon={this.state.pokemon} />
+                            </Panel.Body>
+                            </Panel>:null}
                     </Col>
                 </Row>
             </Grid>

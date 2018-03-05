@@ -20,7 +20,7 @@ class PokemonPesquisa extends Component {
     }
 
     capturar = () => {
-        this.props.aoCapturarPokemon(this.props.capturar);
+        this.props.aoCapturarPokemon(this.props.pokemon);
         this.setState({
             redirecionar: true,
         })
@@ -43,15 +43,16 @@ class PokemonPesquisa extends Component {
         return (
             <div>
             <PokemonRef nome={pokemon.name} altura={pokemon.height} peso={pokemon.weight} thumb={pokemon.sprites.front_default} /> 
-
-            <Button bsStyle="success" onClick={this.capturar} > CAPTURAR </Button>
+            {this.props.capturar?
+            <Button bsStyle="success" onClick={this.capturar} > CAPTURAR </Button> : null }
             </div>
         );
     }
 }
 
 PokemonPesquisa.propTypes = {
-    pokemon: PropTypes.string
+    pokemon: PropTypes.string,
+    capturar: PropTypes.bool,
 };
 
 export default PokemonPesquisa;

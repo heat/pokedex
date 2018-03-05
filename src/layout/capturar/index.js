@@ -89,7 +89,7 @@ class CapturarRoute extends Component {
                 <Row>
                     <Col xs={12}>
                     <div>
-                        <PokemonPesquisa pokemon={this.state.pokemon} >
+                        <PokemonPesquisa pokemon={this.state.pokemon} capturar >
 
                         </PokemonPesquisa>
                     </div>

@@ -1,4 +1,8 @@
-const pokedex = ( state = [], action) => {
+const pokedex = ( state = [{
+    id: 12,
+    name: `12312312`,
+    sprites: {}
+}], action) => {
 
     switch(action.type) {
         case 'CAPTURAR':
