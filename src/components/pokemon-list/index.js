@@ -21,7 +21,7 @@ const PokemonListItem = ({pokemon, aoLiberarPokemon, aoSelecionarPokemon }) => {
         <ListGroupItem className="pokemon-item" >
             <Row>
                 <Col xs={4}>
-            <a href="#" onClick={() => aoSelecionarPokemon(pokemon)} >#{pokemon.id} {pokemon.name}</a>
+            <Button bsStyle="link" onClick={() => aoSelecionarPokemon(pokemon)} >#{pokemon.id} {pokemon.name}</Button>
                 </Col>
                 <Col xs={4}>
                     {pokemon.types.map( t => <Label bsSize="large" >{t.type.name}</Label>)}
