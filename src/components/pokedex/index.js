@@ -47,7 +47,7 @@ class PokedexComponent extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={4}>
+                    <Col xs={12}>
                         <CapturedPokemons aoSelecionarPokemon={this.detalhePokemon} />
                     </Col>
                     <Col xs={6} md={4}>

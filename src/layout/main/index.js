@@ -21,7 +21,7 @@ class App extends Component {
     <div className="pokedex">
         <div className="container">
         <header>
-            <h1>POKEDEX V1.2</h1>
+            <h1> <Link to="/"> POKEDEX V1.2 </Link></h1>
         </header>
         </div>
         <Navbar className="container" >

@@ -5,51 +5,56 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import {
+  Grid,
+  Row,
+  Col,
+  Button,
+  Glyphicon,
+  Well
+} from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import MainLayout from './layout/main';
 import CapturarRoute from './layout/capturar';
 import Pokedex from './components/pokedex';
 
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-)
+const HowToUse = () => {
 
-const Topics = ({ match }) => (
-  <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>
-          Rendering with React
-        </Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>
-          Components
-        </Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>
-          Props v. State
-        </Link>
-      </li>
-    </ul>
+  return (
+    <Grid>
+      <Row>
+        <Col xs={12}>
+          <h3>Como usar?</h3>
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={12} md={4} >
+          <p>Selecione o menu capturar e digite o nome ou numero do seu pokemon</p>
+          <p>Clique no botao da lupa <Button><Glyphicon glyph="search" /></Button> e aguarde a pesquisa. O pokemon <strong>Missing NO é um erro</strong>, nunca o capture pois pode corromper seu save. </p>
+          <p>Quando você encontrar o pokemon desejado clique em <Button bsStyle="success">CAPTURAR</Button> para enviar as informações do seu pokemon para pokedex.</p>
 
-    <Route path={`${match.path}/:topicId`} component={Topic}/>
-    <Route exact path={match.path} render={() => (
-      <h3>Please select a topic.</h3>
-    )}/>
-  </div>
-)
+        </Col>
+        <Col xs={12} md={4} >
+          <p>Quando sua pokedex tiver registros dos seus pokemons eles irão aparecer na lista mostrando informações do tipo do pokemon. Clique no nome do pokemon para exibir detalhes dele.</p>
+          <p>Quando quiser liberar um pokemon clique no <Button bsStyle="danger"><Glyphicon glyph="trash" /></Button> ao lado do nome do seu pokemon.</p>
+          <p>Você pode consultar a lista de movimentos de seu pokemon quando clicar nela.</p>
+        </Col>
+        <Col xs={12} md={4} >
+          <Well>
+          <p>Um segredo: para saber quais os pokemon do mesmo tipo do seu clique no tipo dele quando aparecer os detalhes.</p>
+          </Well>
+        </Col>
+      </Row>
+    </Grid>
+  )
+}
 
 const PokedexApp = () => (
   <Router>
     <MainLayout>
+      <Route path="/" exact component={HowToUse}/>
       <Route path="/pokedex" component={Pokedex}/>
       <Route path="/capturar" component={CapturarRoute}/>
-      <Route path="/topics" component={Topics}/>
     </MainLayout>
   </Router>
 )
