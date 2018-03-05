@@ -23,7 +23,8 @@ class PokemonDetalhe extends Component {
                     </Row>
                     <Row>
                         <Col xs={12}>
-                        {pokemon.types.map( t => <Label>{t.type.name}</Label>)}
+                        <h4> {pokemon.types.map( t => <Label bsSize="large" onClick={() => this.props.aoEscolherTipo(t.type.name)} >{t.type.name}</Label>)}
+                        </h4>
                         </Col>
                     </Row>
                 </Panel.Body>
@@ -36,7 +37,8 @@ class PokemonDetalhe extends Component {
 }
 
 PokemonDetalhe.propTypes = {
-    pokemon: PropTypes.object
+    pokemon: PropTypes.object,
+    aoEscolherTipo: PropTypes.func,
 };
 
 export default PokemonDetalhe;

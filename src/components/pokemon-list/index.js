@@ -24,7 +24,7 @@ const PokemonListItem = ({pokemon, aoLiberarPokemon, aoSelecionarPokemon }) => {
             <a href="#" onClick={() => aoSelecionarPokemon(pokemon)} >#{pokemon.id} {pokemon.name}</a>
                 </Col>
                 <Col xs={4}>
-                    {pokemon.types.map( t => <Label>{t.type.name}</Label>)}
+                    {pokemon.types.map( t => <Label bsSize="large" >{t.type.name}</Label>)}
                 </Col>
                 <Col xs={4}>
             <Button bsStyle="danger" className="pull-right" bsSize="small"
@@ -39,6 +39,14 @@ const PokemonListItem = ({pokemon, aoLiberarPokemon, aoSelecionarPokemon }) => {
 
 class PokemonList extends PureComponent {
     render() {
+
+        if(this.props.pokemons.length < 1) {
+            return (
+            <ListGroup>
+                <ListGroupItem bsStyle="warning"> SEM POKEMON NA LISTA </ListGroupItem>
+            </ListGroup>
+            );
+        }
         return (
             <ListGroup>
                 { this.props.pokemons.map( p => <PokemonListItem pokemon={p} {...this.props} />)}

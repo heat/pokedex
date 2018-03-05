@@ -13,6 +13,7 @@ import {
 } from 'react-bootstrap';
 import CapturedPokemons from '../../containers/captured-pokemons';
 import PokemonDetalhe from '../pokemon-detalhe';
+import PokemonRelacionados from '../pokemon-relacionado';
 
 class PokedexComponent extends Component {
     constructor() {
@@ -20,6 +21,7 @@ class PokedexComponent extends Component {
 
         this.state = {
             pokemon: null,
+            tipo: null,
         }
     }
 
@@ -29,6 +31,13 @@ class PokedexComponent extends Component {
             pokemon,
         });
     }
+
+    pokemonRelacionados = tipo => {
+        this.setState({
+            tipo
+        });
+    }
+
     render() {
         return (
             <Grid>
@@ -41,8 +50,11 @@ class PokedexComponent extends Component {
                     <Col xs={12} md={4}>
                         <CapturedPokemons aoSelecionarPokemon={this.detalhePokemon} />
                     </Col>
-                    <Col xs={12} md={8}>
-                        {(this.state.pokemon)?<PokemonDetalhe pokemon={this.state.pokemon} />:null}
+                    <Col xs={6} md={4}>
+                        {(this.state.pokemon)?<PokemonDetalhe pokemon={this.state.pokemon} aoEscolherTipo={this.pokemonRelacionados} />:null}
+                    </Col>
+                    <Col xs={6} md={8}>
+                        <PokemonRelacionados tipo={this.state.tipo} />
                     </Col>
                 </Row>
             </Grid>
